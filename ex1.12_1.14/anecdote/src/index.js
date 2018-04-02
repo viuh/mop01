@@ -15,7 +15,7 @@ class App extends React.Component {
     super(props)
     this.state = {
       selected: 0,
-      pisteet: { 0:0, 1:0, 2:0, 3:0, 4:0}
+      points: { 0:0, 1:0, 2:0, 3:0, 4:0}
     }
   } 
 
@@ -30,7 +30,7 @@ class App extends React.Component {
 
 vote = () => {
     return () => {
-        let orig = this.state.pisteet
+        let orig = this.state.points
         orig[this.state.selected]+=1
         this.setState({
             pisteet: orig
@@ -43,7 +43,7 @@ show = (idx) => {
 
     return (
         <div>{anecdotes[idx]}
-        <br/>has {this.state.pisteet[idx]} votes
+        <br/>has {this.state.points[idx]} votes
         </div>
     )
 }   
@@ -56,7 +56,7 @@ mostVoted = () => {
     //console.log("suurimman index:",most)
     let a = 0
     let indexOfMax = 0
-    a = Object.values(this.state.pisteet)
+    a = Object.values(this.state.points)
  
     //https://stackoverflow.com/a/45607455/364931
     indexOfMax = a.reduce( (a,b,i) => a[0] < b ? [b,i] : a, [Number.MIN_VALUE,-1])[1]

@@ -11,15 +11,23 @@ const Button = (props) => {
   )
 }
 
-const Statistic = ({name,value}) => {
+const Statistic = ({name,value,tarkkuus}) => {
 
     let suffix = ""
     if (name==="positiivisia") {
       suffix = " %"
     }
 
+    let result=0
+    if (tarkkuus===0) { 
     return (
       <tr><td>{name}</td><td>{value}{suffix}</td></tr>
+    ) 
+    }
+
+    result = Math.round (value * 10) / 10 
+    return (
+      <tr><td>{name}</td><td>{result}{suffix}</td></tr>
     )
 
 }
@@ -34,11 +42,11 @@ const Statistics = ({valinnat,tiedot,arvolkm}) => {
   return (
     <div>
       <table><tbody>
-        <Statistic name = {valinnat[0]} value={tiedot[0]} />
-        <Statistic name = {valinnat[1]} value={tiedot[1]} />
-        <Statistic name = {valinnat[2]} value={tiedot[2]} />
-        <Statistic name = {valinnat[3]} value={tiedot[3]} />
-        <Statistic name = {valinnat[4]} value={tiedot[4]}/>
+        <Statistic name = {valinnat[0]} value={tiedot[0]} tarkkuus="0" />
+        <Statistic name = {valinnat[1]} value={tiedot[1]} tarkkuus="0" />
+        <Statistic name = {valinnat[2]} value={tiedot[2]} tarkkuus="0" />
+        <Statistic name = {valinnat[3]} value={tiedot[3]} tarkkuus="1" />
+        <Statistic name = {valinnat[4]} value={tiedot[4]} tarkkuus="1" />
       </tbody>
       </table>
     </div>
