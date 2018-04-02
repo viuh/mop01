@@ -24,16 +24,21 @@ const Statistic = ({name,value}) => {
 
 }
 
-const Statistics = (props) => {
+const Statistics = ({valinnat,tiedot,arvolkm}) => {
   
+  if (arvolkm==0) {
+    return (
+      <div>ei yhtään palautetta annettu.</div>
+    )
+  }
   return (
     <div>
       <table><tbody>
-        <Statistic name = {props.valinnat[0]} value={props.tiedot[0]} />
-        <Statistic name = {props.valinnat[1]} value={props.tiedot[1]} />
-        <Statistic name = {props.valinnat[2]} value={props.tiedot[2]} />
-        <Statistic name = {props.valinnat[3]} value={props.tiedot[3]} />
-        <Statistic name = {props.valinnat[4]} value={props.tiedot[4]}/>
+        <Statistic name = {valinnat[0]} value={tiedot[0]} />
+        <Statistic name = {valinnat[1]} value={tiedot[1]} />
+        <Statistic name = {valinnat[2]} value={tiedot[2]} />
+        <Statistic name = {valinnat[3]} value={tiedot[3]} />
+        <Statistic name = {valinnat[4]} value={tiedot[4]}/>
       </tbody>
       </table>
     </div>
