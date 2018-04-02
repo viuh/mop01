@@ -26,7 +26,7 @@ const Statistic = ({name,value}) => {
 
 const Statistics = ({valinnat,tiedot,arvolkm}) => {
   
-  if (arvolkm==0) {
+  if (arvolkm===0) {
     return (
       <div>ei yhtään palautetta annettu.</div>
     )
